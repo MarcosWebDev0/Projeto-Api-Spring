@@ -23,7 +23,7 @@ public class TestConfig implements CommandLineRunner{
 		
 		Pessoa p1 = new Pessoa(null, "Marcos", "25525525522", LocalDate.of(1998, 6, 7), "123456789");
 		Pessoa p2 = new Pessoa(null, "Maria", "25525525578", LocalDate.of(1991, 10, 25), "987654321");
-		Pessoa p3 = new Pessoa(null, "Gabriela", "25525525595", LocalDate.of(2020, 1, 15), "147258369");
+		Pessoa p3 = new Pessoa(null, "Gabriela", "25525525595", LocalDate.of(2000, 1, 15), "147258369");
 		
 		userRepository.saveAll(Arrays.asList(p1, p2, p3));
 	}

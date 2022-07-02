@@ -23,6 +23,10 @@ public class Pessoa implements Serializable {
 	private LocalDate nascimento;
 	private String telefone;
 
+	public Pessoa() {
+		
+	}
+	
 	public Pessoa(Long id, String nome, String cpf, LocalDate nascimento, String telefone) {
 		super();
 		this.id = id;
