@@ -4,21 +4,31 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class User implements Serializable {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class Pessoa implements Serializable {
 
 
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	private String cpf;
-	private LocalDate dataNascimento;
+	private LocalDate nascimento;
 	private String telefone;
 
-	public User(Long id, String nome, String cpf, LocalDate dataNascimento, String telefone) {
+	public Pessoa(Long id, String nome, String cpf, LocalDate nascimento, String telefone) {
+		super();
 		this.id = id;
 		this.nome = nome;
 		this.cpf = cpf;
-		this.dataNascimento = dataNascimento;
+		this.nascimento = nascimento;
 		this.telefone = telefone;
 	}
 
@@ -47,11 +57,11 @@ public class User implements Serializable {
 	}
 
 	public LocalDate getDataNascimento() {
-		return dataNascimento;
+		return nascimento;
 	}
 
-	public void setDataNascimento(LocalDate dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setDataNascimento(LocalDate nascimento) {
+		this.nascimento = nascimento;
 	}
 
 	public String getTelefone() {
@@ -75,7 +85,7 @@ public class User implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		User other = (User) obj;
+		Pessoa other = (Pessoa) obj;
 		return Objects.equals(id, other.id);
 	}
 	
