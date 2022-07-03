@@ -8,7 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.Api.ApiRest.Repositories.UserRepository;
+import com.Api.ApiRest.Repositories.PessoaRepository;
 import com.Api.ApiRest.Repositories.VagaRepository;
 import com.Api.ApiRest.Repositories.VeiculoRepository;
 import com.Api.ApiRest.entities.Pessoa;
@@ -20,7 +20,7 @@ import com.Api.ApiRest.entities.Veiculo;
 public class TestConfig implements CommandLineRunner{
 
 	@Autowired
-	private UserRepository userRepository;
+	private PessoaRepository pessoaRepository;
 	
 	@Autowired
 	private VeiculoRepository veiculoRepository;
@@ -44,7 +44,7 @@ public class TestConfig implements CommandLineRunner{
 		Vaga vaga3 = new Vaga(null, p1, v3);
 		Vaga vaga4 = new Vaga(null, p3, v1);
 		
-		userRepository.saveAll(Arrays.asList(p1, p2, p3));
+		pessoaRepository.saveAll(Arrays.asList(p1, p2, p3));
 		veiculoRepository.saveAll(Arrays.asList(v1,v2,v3));
 		vagaRepository.saveAll(Arrays.asList(vaga1, vaga2, vaga3, vaga4));
 	}
