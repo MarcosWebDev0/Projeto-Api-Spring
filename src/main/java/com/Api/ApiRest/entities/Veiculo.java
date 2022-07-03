@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Veiculo implements Serializable {
@@ -26,8 +27,21 @@ public class Veiculo implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "donoCarro_id")
 	private Pessoa donoCarro;
+	
+	@OneToOne
+	private Vaga vaga;
 
 	
+	public Vaga getVaga() {
+		return vaga;
+	}
+
+
+	public void setVaga(Vaga vaga) {
+		this.vaga = vaga;
+	}
+
+
 	public Veiculo() {
 		
 	}

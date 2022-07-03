@@ -9,8 +9,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
 import com.Api.ApiRest.Repositories.UserRepository;
+import com.Api.ApiRest.Repositories.VagaRepository;
 import com.Api.ApiRest.Repositories.VeiculoRepository;
 import com.Api.ApiRest.entities.Pessoa;
+import com.Api.ApiRest.entities.Vaga;
 import com.Api.ApiRest.entities.Veiculo;
 
 @Configuration
@@ -22,6 +24,9 @@ public class TestConfig implements CommandLineRunner{
 	
 	@Autowired
 	private VeiculoRepository veiculoRepository;
+	
+	@Autowired
+	private VagaRepository vagaRepository;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -34,7 +39,13 @@ public class TestConfig implements CommandLineRunner{
 		Veiculo v2 = new Veiculo(null, "Onix", "Sedan", "ZYQ987", 2016, 2016, p1);
 		Veiculo v3 = new Veiculo(null, "Gol", "G5", "ASD456", 2011, 2012, p1);
 		
+		Vaga vaga1 = new Vaga(null, p1, v2);
+		Vaga vaga2 = new Vaga(null, p2, null);
+		Vaga vaga3 = new Vaga(null, p1, v3);
+		Vaga vaga4 = new Vaga(null, p3, v1);
+		
 		userRepository.saveAll(Arrays.asList(p1, p2, p3));
 		veiculoRepository.saveAll(Arrays.asList(v1,v2,v3));
+		vagaRepository.saveAll(Arrays.asList(vaga1, vaga2, vaga3, vaga4));
 	}
 }
