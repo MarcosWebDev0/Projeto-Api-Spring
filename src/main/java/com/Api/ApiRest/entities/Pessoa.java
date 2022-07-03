@@ -2,12 +2,17 @@ package com.Api.ApiRest.entities;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Pessoa implements Serializable {
@@ -22,6 +27,11 @@ public class Pessoa implements Serializable {
 	private String cpf;
 	private LocalDate nascimento;
 	private String telefone;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy = "donoCarro")
+	private List<Veiculo> veiculos = new ArrayList<>();
+	
 
 	public Pessoa() {
 		
@@ -39,6 +49,11 @@ public class Pessoa implements Serializable {
 	public Long getId() {
 		return id;
 	}
+	
+	public List<Veiculo> getVeiculos() {
+		return veiculos;
+	}
+	
 
 	public void setId(Long id) {
 		this.id = id;
@@ -92,6 +107,7 @@ public class Pessoa implements Serializable {
 		Pessoa other = (Pessoa) obj;
 		return Objects.equals(id, other.id);
 	}
+
 	
 
 }
