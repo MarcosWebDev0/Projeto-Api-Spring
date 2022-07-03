@@ -87,11 +87,11 @@ public class Pessoa implements Serializable {
 		this.cpf = cpf;
 	}
 
-	public LocalDate getDataNascimento() {
+	public LocalDate getNascimento() {
 		return nascimento;
 	}
 
-	public void setDataNascimento(LocalDate nascimento) {
+	public void setNascimento(LocalDate nascimento) {
 		this.nascimento = nascimento;
 	}
 
